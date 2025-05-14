@@ -4,13 +4,13 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { 
   CreditCard, 
   BarChart, 
-  ShoppingBag, 
+  Package, 
+  Archive, 
+  Box, 
   Users, 
   UserCog,
   BarChart2, 
-  Settings,
-  Receipt,
-  Tag
+  Settings
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import {
@@ -27,7 +27,8 @@ import {
 } from "@/components/ui/sidebar";
 
 const Sidebar = () => {
-  const { collapsed } = useSidebar();
+  const { state } = useSidebar();
+  const collapsed = state === "collapsed";
   const location = useLocation();
   const { currentUser } = useAuth();
   
@@ -58,17 +59,17 @@ const Sidebar = () => {
     { 
       label: 'Orders', 
       path: '/orders', 
-      icon: <Receipt size={20} /> 
+      icon: <Package size={20} /> 
     },
     { 
       label: 'Inventory', 
       path: '/inventory', 
-      icon: <ShoppingBag size={20} /> 
+      icon: <Archive size={20} /> 
     },
     { 
       label: 'Products', 
       path: '/products', 
-      icon: <Tag size={20} /> 
+      icon: <Box size={20} /> 
     },
     { 
       label: 'Customers', 
@@ -111,7 +112,7 @@ const Sidebar = () => {
       className={`${
         collapsed ? 'w-[70px]' : 'w-64'
       } transition-all duration-300 bg-white border-r border-gray-200`}
-      collapsible
+      collapsible="icon"
     >
       <div className={`p-4 border-b border-gray-200 flex ${collapsed ? 'justify-center' : 'justify-between'} items-center`}>
         {!collapsed && <h1 className="font-bold text-xl text-pos-blue">QuickPOS</h1>}

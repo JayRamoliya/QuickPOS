@@ -11,6 +11,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import POS from "./pages/POS";
+import Orders from "./pages/Orders";
 import NotFound from "./pages/NotFound";
 
 // Layout
@@ -33,9 +34,9 @@ const App = () => (
             <Route element={<MainLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/pos" element={<POS />} />
+              <Route path="/orders" element={<Orders />} />
               
               {/* Placeholder routes */}
-              <Route path="/orders" element={<div className="p-4"><h1 className="text-2xl font-bold">Orders</h1><p className="mt-4">Order management will be implemented in the next phase.</p></div>} />
               <Route path="/inventory" element={<div className="p-4"><h1 className="text-2xl font-bold">Inventory</h1><p className="mt-4">Inventory management will be implemented in the next phase.</p></div>} />
               <Route path="/products" element={<div className="p-4"><h1 className="text-2xl font-bold">Products</h1><p className="mt-4">Product management will be implemented in the next phase.</p></div>} />
               <Route path="/customers" element={<div className="p-4"><h1 className="text-2xl font-bold">Customers</h1><p className="mt-4">Customer management will be implemented in the next phase.</p></div>} />
