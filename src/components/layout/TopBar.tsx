@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Bell, User, Menu } from 'lucide-react';
+import { Bell, User } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -17,12 +17,12 @@ import { useSidebar } from '@/components/ui/sidebar';
 
 const TopBar = () => {
   const navigate = useNavigate();
-  const { signOut, currentUser } = useAuth();
+  const { logout, currentUser } = useAuth();
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
 
   const handleSignOut = () => {
-    signOut();
+    logout();
     navigate('/login');
   };
 
@@ -54,7 +54,7 @@ const TopBar = () => {
               <Button variant="ghost" className="relative h-10 w-10 rounded-full">
                 <Avatar>
                   <AvatarFallback>
-                    {currentUser?.displayName ? getInitials(currentUser.displayName) : 'U'}
+                    {currentUser?.name ? getInitials(currentUser.name) : 'U'}
                   </AvatarFallback>
                 </Avatar>
               </Button>
